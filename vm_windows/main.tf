@@ -19,6 +19,7 @@ module "rg02" {
 }
 
 module "vnet01" {
+  depends_on = [ module.rg01 ]
   source = "../modules/virtual_network"
   rg_name = module.rg01.rg_name
   vnet_name = "vnet-demo"
@@ -39,6 +40,7 @@ module "vnet01" {
 }
 
 module "nic01" {
+  depends_on = [ module.rg02, module.vnet01 ]
   source = "../modules/network_interface"
   rg_name = module.rg02.rg_name
   location = "eastus"
@@ -49,7 +51,8 @@ module "nic01" {
 }
 
 module "vm01" {
-  source = "../modules/virtual_machine"
+  depends_on = [ module.nic01 ]
+  source = "../modules/windows_virtual_machine"
   rg_name = module.rg02.rg_name
   location = "eastus"
   vm_name = "vmdemo"
