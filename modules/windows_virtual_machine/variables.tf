@@ -32,13 +32,13 @@ variable "admin_password" {
 variable "vm_os_disk_caching" {
   description = "Caching type for the OS disk"
   type        = string
-  default     = "ReadWrite"
+  default     = "ReadWrite" // Possible values: None, ReadOnly, ReadWrite
 }
 
-variable "vm_os_disk_storage_account_type" {
+variable "vm_os_disk_type" {
   description = "Storage account type for the OS disk"
   type        = string
-  default     = "Standard_LRS"
+  default     = "Standard_LRS" // Possible values: Standard_LRS, Premium_LRS, StandardSSD_LRS, UltraSSD_LRS
 }
 
 variable "image_publisher" {
@@ -59,10 +59,10 @@ variable "image_sku" {
 variable "os_license_type" {
   description = "License type for the image"
   type        = string
-  default     = "Windows_Client"
+  default     = "None" // Possible values: Windows_Server, Windows_Client, None
 }
 
-variable "vm_tags" {
+variable "tags" {
   description = "Tags for the virtual machine"
   type        = map(string)
   default     = {}

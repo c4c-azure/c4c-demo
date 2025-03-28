@@ -8,7 +8,7 @@ variable "location" {
   type        = string
 }
 
-variable "rg_tags" {
+variable "tags" {
   description = "Tags for the resource group"
   type        = map(string)
   default     = {}

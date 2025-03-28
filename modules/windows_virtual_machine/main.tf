@@ -1,6 +1,4 @@
-
-
-resource "azurerm_windows_virtual_machine" "vm_linux" {
+resource "azurerm_windows_virtual_machine" "vm_win" {
   name                = var.vm_name
   location            = var.location
   resource_group_name = var.rg_name
@@ -11,7 +9,7 @@ resource "azurerm_windows_virtual_machine" "vm_linux" {
   os_disk {
     name                 = "${var.vm_name}-osdisk"
     caching              = var.vm_os_disk_caching
-    storage_account_type = var.vm_os_disk_storage_account_type
+    storage_account_type = var.vm_os_disk_type
   }
   source_image_reference {
     publisher = var.image_publisher
@@ -22,7 +20,7 @@ resource "azurerm_windows_virtual_machine" "vm_linux" {
 
   license_type = var.os_license_type
 
-  tags = var.vm_tags
+  tags = var.tags
 
   lifecycle {
     ignore_changes = [ tags ]

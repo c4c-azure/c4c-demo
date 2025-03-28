@@ -1,8 +1,3 @@
-variable "disk_name" {
-  description = "Name of the data disk"
-  type        = string
-}
-
 variable "location" {
   description = "Location of the data disk"
   type        = string
@@ -38,5 +33,5 @@ variable "vm_id" {
 variable "data_disk_caching" {
   description = "Caching type for the data disk"
   type        = list(string)
-  // default     = ["ReadWrite", "ReadOnly"]
+  // default     = ["ReadWrite", "ReadOnly"]  // Possible values: None, ReadOnly, ReadWrite
 }
