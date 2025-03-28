@@ -70,5 +70,5 @@ variable "tags" {
 
 variable "nic_id" {
   description = "Network Interface ID for the virtual machine"
-  type        = string
+  type        = list(string)
 }

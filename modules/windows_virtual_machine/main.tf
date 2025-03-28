@@ -5,7 +5,7 @@ resource "azurerm_windows_virtual_machine" "vm_win" {
   size                = var.vm_size
   admin_username      = var.admin_username
   admin_password      = var.admin_password
-  network_interface_ids = [var.nic_id]
+  network_interface_ids = var.nic_id
   os_disk {
     name                 = "${var.vm_name}-osdisk"
     caching              = var.vm_os_disk_caching
