@@ -18,8 +18,4 @@ resource "azurerm_virtual_machine_data_disk_attachment" "datadiska" {
   virtual_machine_id          = var.vm_id
   caching                     = "${var.data_disk_caching[count.index]}"
   lun                         = "${count.index}"
-
-  lifecycle {
-    ignore_changes = [ tags ]
-  }
 }
