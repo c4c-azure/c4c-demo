@@ -45,7 +45,7 @@ module "nic01" {
   rg_name = module.rg02.rg_name
   location = "eastus"
   vm_name = "vmdemo"
-  subnet_id = module.vnet01.subnet_id[0]
+  subnet_id = module.vnet01.subnet.id[0]
   private_ip_allocation_method = "Static"
   private_ip_address = "10.3.0.4"
 }
