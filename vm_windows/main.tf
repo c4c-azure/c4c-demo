@@ -58,7 +58,7 @@ module "vm01" {
   vm_name = "vmdemo"
   vm_size = "Standard_B2ms"
   admin_username = "azureuser"
-  admin_password = "P@ssw0rd1234!"
+  admin_password = "Env.WinPassword"
   nic_id = [ module.nic01.nic_id ]
   vm_os_disk_caching = "ReadWrite"
   vm_os_disk_type = "Standard_LRS"
